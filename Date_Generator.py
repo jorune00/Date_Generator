@@ -17,8 +17,6 @@ def find_thanksgiving(year):
         days_to_thursday += 7
     # Add three weeks (21 days) to get to the fourth Thursday
     thanksgiving = date + datetime.timedelta(days=days_to_thursday + 21)
-    # thanksgiving.text = f"{thanksgiving_date.month}/{thanksgiving_date.day}/{thanksgiving_date.year}"
-    # possibly use the above line to format the date if needed - note
     return thanksgiving
 
 # Function to find the date of Memorial Day for a given year
@@ -81,6 +79,8 @@ for i in range(num_years):
     thanksgiving_date = find_thanksgiving(year)
     thanksgiving = ET.SubElement(holidays, f"Holiday{holiday_counter}")
     thanksgiving.text = thanksgiving_date.strftime("%-m/%-d/%Y")
+    # thanksgiving.text = f"{thanksgiving_date.month}/{thanksgiving_date.day}/{thanksgiving_date.year}"
+    # possibly use the above line to format the date if needed - instead of thanksgiving.text = thanksgiving_date.strftime("%-m/%-d/%Y")
     holiday_counter += 1
 
     # Add Christmas Eve holiday
